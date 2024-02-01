@@ -1,0 +1,18 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Semi-transparent background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#CC000000" /> <!-- Set the background color with transparency (e.g., 80% opacity) -->
+            <corners android:radius="16dp" /> <!-- Set the corner radius to round the corners of the dialog -->
+        </shape>
+    </item>
+
+    <!-- Shadow effect -->
+    <item android:right="2dp" android:left="2dp" android:top="2dp" android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" /> <!-- Set the background color of the shadow -->
+            <corners android:radius="16dp" /> <!-- Set the corner radius to round the corners of the shadow -->
+        </shape>
+    </item>
+
+</layer-list>

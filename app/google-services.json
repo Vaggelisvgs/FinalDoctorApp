@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "100386879746",
+    "project_id": "finaldoctorapp-e2aa1",
+    "storage_bucket": "finaldoctorapp-e2aa1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100386879746:android:6035f61c8a53f7f233aa1b",
+        "android_client_info": {
+          "package_name": "com.example.finaldoctorapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100386879746-jti2nb12urjc63apnub01psg3ofdqoje.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAk2O6zG8SZwGGs71hIUDUiNwW7Isgz_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100386879746-jti2nb12urjc63apnub01psg3ofdqoje.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

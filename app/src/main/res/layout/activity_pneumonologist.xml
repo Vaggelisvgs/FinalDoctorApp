@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:backgroundTint="@color/grey"
+    tools:context=".InternistActivity">
+
+    <TextView
+        android:id="@+id/textView63"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="11dp"
+        android:text="ΔΗΜΗΤΡΕΛΛΟΣ ΠΑΝΑΓΙΩΤΗΣ"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView62"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="124dp"
+        android:layout_height="99dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="274dp"
+        app:layout_constraintBottom_toTopOf="@+id/button19"
+        app:layout_constraintEnd_toStartOf="@+id/textView63"
+        app:srcCompat="@drawable/man_icon" />
+
+    <TextView
+        android:id="@+id/textView61"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="18dp"
+        android:text="6972526845"
+        app:layout_constraintBottom_toTopOf="@+id/textView60"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView62"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="58dp"
+        android:layout_marginBottom="15dp"
+        android:text="panosdimitrellos@gmail.com"
+        app:layout_constraintBottom_toTopOf="@+id/textView61"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button53"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="188dp"
+        android:onClick="openDimitrellosActivity"
+        android:text="Book"
+        app:layout_constraintBottom_toTopOf="@+id/button18"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="12dp"
+        android:text="ΠΙΝΔΟΥ 12, ΒΡΙΛΛΗΣΙΑ"
+        app:layout_constraintBottom_toTopOf="@+id/button53"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="124dp"
+        android:layout_height="99dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="108dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView10"
+        app:layout_constraintEnd_toStartOf="@+id/textView59"
+        app:srcCompat="@drawable/man_icon" />
+
+    <TextView
+        android:id="@+id/textView58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="111dp"
+        android:layout_marginBottom="15dp"
+        android:text="fotaras46@gmail.com"
+        app:layout_constraintBottom_toTopOf="@+id/textView57"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView56"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="13dp"
+        android:text="ΧΑΤΖΗΑΝΤΩΝΙΟΥ 7, ΜΑΡΟΥΣΙ"
+        app:layout_constraintBottom_toTopOf="@+id/button52"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView57"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="18dp"
+        android:text="6977123572"
+        app:layout_constraintBottom_toTopOf="@+id/textView56"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="openSiouziosActivity"
+        android:text="Book"
+        app:layout_constraintBottom_toTopOf="@+id/textView63"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="9dp"
+        android:text="ΣΙΟΥΖΙΟΣ ΦΩΤΙΟΣ"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView58"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="202dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="3dp"
+        android:layout_weight="1"
+        android:onClick="openMyProfileActivity"
+        android:text="My Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="204dp"
+        android:layout_height="54dp"
+        android:layout_weight="1"
+        android:onClick="openMainActivity2"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button18" />
+
+    <RelativeLayout
+        android:id="@+id/myrelative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:background="@color/purple_500"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/arrow_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:onClick="openBack"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/arrow_icon"
+            android:text="Pneumonologists"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="288dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

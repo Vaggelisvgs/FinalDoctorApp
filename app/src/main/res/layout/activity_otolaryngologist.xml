@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:backgroundTint="@color/grey"
+    tools:context=".InternistActivity">
+
+    <TextView
+        android:id="@+id/textView72"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="15dp"
+        android:text="nickpaul99@hotmail.com"
+        app:layout_constraintBottom_toTopOf="@+id/textView75"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView73"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="11dp"
+        android:text="ΝΙΚΟΛΑΙΔΗΣ ΠΑΥΛΟΣ"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView72"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView74"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="28dp"
+        android:text="ΕΡΑΤΟΥΣ 28, ΧΟΛΑΡΓΟΣ"
+        app:layout_constraintBottom_toTopOf="@+id/button56"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button56"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="171dp"
+        android:onClick="openNikolaidisActivity"
+        android:text="Book"
+        app:layout_constraintBottom_toTopOf="@+id/button18"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="124dp"
+        android:layout_height="99dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="274dp"
+        app:layout_constraintBottom_toTopOf="@+id/button19"
+        app:layout_constraintEnd_toStartOf="@+id/textView73"
+        app:srcCompat="@drawable/man_icon" />
+
+    <TextView
+        android:id="@+id/textView75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="17dp"
+        android:text="6980904202"
+        app:layout_constraintBottom_toTopOf="@+id/textView74"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="124dp"
+        android:layout_height="99dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="101dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView13"
+        app:layout_constraintEnd_toStartOf="@+id/textView69"
+        app:srcCompat="@drawable/woman_icon" />
+
+    <TextView
+        android:id="@+id/textView68"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="15dp"
+        android:text="christinarozaki@gmail.com"
+        app:layout_constraintBottom_toTopOf="@+id/textView71"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="119dp"
+        android:layout_marginBottom="5dp"
+        android:text="ΚΡΗΤΗΣ 16, ΑΛΙΜΟΣ"
+        app:layout_constraintBottom_toTopOf="@+id/button55"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView71"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="18dp"
+        android:text="6941659590"
+        app:layout_constraintBottom_toTopOf="@+id/textView70"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView69"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="10dp"
+        android:text="ΡΟΖΑΚΗ ΧΡΙΣΤΙΝΑ"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView68"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="22dp"
+        android:onClick="openRozakiActivity"
+        android:text="Book"
+        app:layout_constraintBottom_toTopOf="@+id/textView73"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="202dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="3dp"
+        android:layout_weight="1"
+        android:onClick="openMyProfileActivity"
+        android:text="My Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="204dp"
+        android:layout_height="54dp"
+        android:layout_weight="1"
+        android:onClick="openMainActivity2"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button18" />
+
+    <RelativeLayout
+        android:id="@+id/myrelative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@color/purple_500"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/arrow_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:onClick="openBack"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/arrow_icon"
+            android:text="Otolaryngologists"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.39808482" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

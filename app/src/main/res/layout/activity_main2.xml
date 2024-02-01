@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/design_default_color_primary_dark"
+    android:backgroundTint="@color/grey"
+    tools:context=".MainActivity2">
+
+
+    <Button
+        android:id="@+id/button25"
+        android:layout_width="407dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="676dp"
+        android:layout_weight="1"
+        android:onClick="openMyProfileActivity"
+        android:text="My Profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="414dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/purple_500"
+        app:layout_constraintBottom_toTopOf="@+id/button11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Find your Doctor!"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/Widget.AppCompat.TextView"
+        android:layout_width="190dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="111dp"
+        android:layout_marginBottom="19dp"
+        android:text="Hope you are well today!"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="27dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Let's find the best doctor for you"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/searchView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="282dp"
+        android:layout_height="346dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.34">
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/myLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:fillViewport="true"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:onClick="openInternist"
+                    android:text="Internist"
+                    android:textColor="@android:color/black" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:onClick="openCardiologist"
+                    android:text="Cardiologist"
+                    android:textColor="@android:color/black" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:onClick="openPneumonologist"
+                    android:text="Pneumonologist"
+                    android:textColor="@android:color/black" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:onClick="openDermatologist"
+                    android:text="Dermatologist"
+                    android:textColor="@android:color/black" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:onClick="openOtolaryngologist"
+                    android:text="Otolaryngologist"
+                    android:textColor="@android:color/black" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:onClick="openOptician"
+                    android:text="Optician"
+                    android:textColor="@android:color/black" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:background="#689F38"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/header_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categories"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="98dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="46dp"
+        android:onClick="openMainActivity"
+        android:text="Log Out"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="319dp"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.295" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

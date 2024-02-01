@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:backgroundTint="@color/grey"
+    tools:context=".RigakisGActivity">
+
+    <Button
+        android:id="@+id/button33"
+        android:layout_width="202dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="3dp"
+        android:layout_weight="1"
+        android:onClick="openMyProfileActivity"
+        android:text="My Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button34"
+        android:layout_width="204dp"
+        android:layout_height="54dp"
+        android:layout_weight="1"
+        android:onClick="openMainActivity2"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button33" />
+
+    <RelativeLayout
+        android:layout_width="411dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="17dp"
+        android:background="@color/purple_500"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/arrow_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:onClick="openBack"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Find your Doctor!"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="77dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toStartOf="@+id/textView29"
+        app:srcCompat="@drawable/man_icon" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="89dp"
+        android:layout_marginBottom="9dp"
+        android:text="ΝΙΚΟΛΑΙΔΗΣ ΠΑΥΛΟΣ"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/textView30"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="10dp"
+        android:text="nickpaul99@hotmail.com"
+        app:layout_constraintBottom_toTopOf="@+id/textView32"
+        app:layout_constraintEnd_toStartOf="@+id/textView31" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="40dp"
+        android:text="6980904202"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="11dp"
+        android:text="ΕΡΑΤΟΥΣ 28, ΧΟΛΑΡΓΟΣ"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="308dp"
+        android:layout_height="297dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="22dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox4"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="69dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="7dp"
+        android:text="18:00"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox8"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox8"
+        android:layout_width="69dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="81dp"
+        android:text="22:00"
+        app:layout_constraintBottom_toTopOf="@+id/button33"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox7"
+        android:layout_width="69dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="19dp"
+        android:text="21:00"
+        app:layout_constraintBottom_toTopOf="@+id/button21"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox8" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="69dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="7dp"
+        android:text="16:00"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox6"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox3" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="69dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="7dp"
+        android:text="17:00"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox7"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox4" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="69dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="81dp"
+        android:text="19:00"
+        app:layout_constraintBottom_toTopOf="@+id/button34"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox6" />
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="69dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="19dp"
+        android:text="20:00"
+        app:layout_constraintBottom_toTopOf="@+id/button21"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox7" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="69dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="7dp"
+        android:text="15:00"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox5"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox2" />
+
+    <Button
+        android:id="@+id/button21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="129dp"
+        android:layout_marginBottom="14dp"
+        android:text="Book the date"
+        app:layout_constraintBottom_toTopOf="@+id/button33"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
