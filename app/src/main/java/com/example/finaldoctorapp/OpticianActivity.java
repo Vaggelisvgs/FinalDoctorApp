@@ -26,6 +26,8 @@ public class OpticianActivity extends AppCompatActivity {
 
     private List<String> apHistory;
 
+    private List<String> likedDoctors;
+
     //init all the info about the xml activity that will be see
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class OpticianActivity extends AppCompatActivity {
         mobileNumber = intent.getStringExtra("mobileNumber");
         password = intent.getStringExtra("password");
         apHistory = intent.getStringArrayListExtra("listExtra");
+        likedDoctors = intent.getStringArrayListExtra("likedListExtra");
         isBackPressed = false;
     }
 
@@ -57,6 +60,8 @@ public class OpticianActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
@@ -75,6 +80,8 @@ public class OpticianActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
@@ -93,6 +100,8 @@ public class OpticianActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
@@ -111,6 +120,8 @@ public class OpticianActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
@@ -127,6 +138,8 @@ public class OpticianActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }

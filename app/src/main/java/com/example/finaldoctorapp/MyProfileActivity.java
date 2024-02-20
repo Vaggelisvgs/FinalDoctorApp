@@ -23,6 +23,8 @@ public class MyProfileActivity extends AppCompatActivity {
 
     private List<String> apHistory;
 
+    private List<String> likedDoctors;
+
     private String fullname;
     private TextView firstNameTextView;
     private TextView lastNameTextView;
@@ -60,6 +62,7 @@ public class MyProfileActivity extends AppCompatActivity {
         mobileNumber = intent.getStringExtra("mobileNumber");
         password = intent.getStringExtra("password");
         apHistory = intent.getStringArrayListExtra("listExtra");
+        likedDoctors = intent.getStringArrayListExtra("likedListExtra");
         isBackPressed = false;
 
         // Set the retrieved values to the respective TextView fields
@@ -86,6 +89,8 @@ public class MyProfileActivity extends AppCompatActivity {
         main2Intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         main2Intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        main2Intent.putExtra("likedListExtra",likedArray);
         startActivity(main2Intent);
         finish();
     }
@@ -103,6 +108,8 @@ public class MyProfileActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
@@ -121,6 +128,8 @@ public class MyProfileActivity extends AppCompatActivity {
         EditIntent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         EditIntent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        EditIntent.putExtra("likedListExtra",likedArray);
         startActivity(EditIntent);
         finish();
     }

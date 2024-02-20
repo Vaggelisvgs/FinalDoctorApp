@@ -59,6 +59,8 @@ public class SignupActivity extends AppCompatActivity {
                 String password = passwordEditText.getText().toString().trim();
                 String mobileNumber = mobileNumberEditText.getText().toString().trim();
                 List<String> emptyList = new ArrayList<>();
+                List<String> emptyLikedList = new ArrayList<>();
+                emptyLikedList.add("-");
                 emptyList.add("-");
 
 
@@ -73,7 +75,7 @@ public class SignupActivity extends AppCompatActivity {
                 } else if (!isValidMobileNumber(mobileNumber)) {
                     showValidationErrorDialog("Please enter a valid mobile number.");
                 }  else {
-                    User user = new User(firstName, lastName, amka, mobileNumber, email,password,emptyList);
+                    User user = new User(firstName, lastName, amka, mobileNumber, email,password,emptyList,emptyLikedList);
 
                     List<String> splittedEmail = Arrays.asList(email.split("@"));
 

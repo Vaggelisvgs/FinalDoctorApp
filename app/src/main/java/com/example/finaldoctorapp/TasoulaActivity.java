@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,11 @@ public class TasoulaActivity extends AppCompatActivity {
     private List<String> apHistory;
 
 
+    private List<String> likedDoctors;
+
+    private ImageView likebutton;
+
+    private Boolean likedDoctorBool;
 
     private List<String> closeDates;
 
@@ -60,7 +66,9 @@ public class TasoulaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rigakis_gactivity);
+        setContentView(R.layout.activity_tasoula);
+
+        likebutton = findViewById(R.id.likeButtonTasoula);
 
         Intent intent = getIntent();
         emailChildString = intent.getStringExtra("userID");
@@ -71,11 +79,110 @@ public class TasoulaActivity extends AppCompatActivity {
         mobileNumber = intent.getStringExtra("mobileNumber");
         password = intent.getStringExtra("password");
         apHistory = intent.getStringArrayListExtra("listExtra");
+        likedDoctors = intent.getStringArrayListExtra("likedListExtra");
         isBackPressed = false;
-
+        checkIfDoctorInLiked();
+        initLikeButtonUI();
         initCalendarUI();
         getClosedDates();
     }
+
+    private void checkIfDoctorInLiked() {
+        if(likedDoctors.contains(classID+", "+doctorCategory)){
+            likebutton.setImageResource(R.drawable.images_red);
+            likedDoctorBool=true;
+        }else{
+            likebutton.setImageResource(R.drawable.images);
+            likedDoctorBool=false;
+        }
+
+    }
+
+    private void initLikeButtonUI() {
+        likebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
+                String userKey = emailChildString;
+
+                if(!likedDoctorBool) {
+                    usersRef.child(userKey).child("likedDoctors").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists() && dataSnapshot.hasChildren()) {
+                                GenericTypeIndicator<List<String>> listType = new GenericTypeIndicator<List<String>>() {
+                                };
+                                List<String> likedDoctor = dataSnapshot.getValue(listType);
+
+                                if (likedDoctor == null) {
+                                    likedDoctor = new ArrayList<>();
+                                }
+
+                                likedDoctor.add(classID + ", " + doctorCategory);
+                                likedDoctors = likedDoctor;
+
+                                usersRef.child(userKey).child("likedDoctors").setValue(likedDoctor)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    likebutton.setImageResource(R.drawable.images_red);
+                                                    likedDoctorBool=true;
+                                                    Toast.makeText(TasoulaActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Toast.makeText(TasoulaActivity.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else{
+                    usersRef.child(userKey).child("likedDoctors").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists() && dataSnapshot.hasChildren()) {
+                                GenericTypeIndicator<List<String>> listType = new GenericTypeIndicator<List<String>>() {
+                                };
+                                List<String> likedDoctor = dataSnapshot.getValue(listType);
+
+                                if (likedDoctor == null) {
+                                    likedDoctor = new ArrayList<>();
+                                }
+
+                                likedDoctor.remove(classID + ", " + doctorCategory);
+                                likedDoctors = likedDoctor;
+
+                                usersRef.child(userKey).child("likedDoctors").setValue(likedDoctor)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(TasoulaActivity.this, "Succesfull", Toast.LENGTH_SHORT).show();
+                                                    likebutton.setImageResource(R.drawable.images);
+                                                    likedDoctorBool=false;
+                                                }else {
+                                                    Toast.makeText(TasoulaActivity.this, "Failed to remove: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Toast.makeText(TasoulaActivity.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        });
+    }
+
 
     //init the calendar details
     private void initCalendarUI() {
@@ -246,6 +353,8 @@ public class TasoulaActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
@@ -262,6 +371,8 @@ public class TasoulaActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
@@ -278,6 +389,8 @@ public class TasoulaActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }

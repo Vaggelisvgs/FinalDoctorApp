@@ -65,8 +65,8 @@
         android:id="@+id/imageView2"
         android:layout_width="77dp"
         android:layout_height="68dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintEnd_toStartOf="@+id/textView29"
         app:srcCompat="@drawable/man_icon" />
@@ -75,8 +75,8 @@
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="9dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="4dp"
         android:text="ΔΗΜΗΤΡΕΛΛΟΣ ΠΑΝΑΓΙΩΤΗΣ"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/textView30"
@@ -212,5 +212,21 @@
         android:text="Book the date"
         app:layout_constraintBottom_toTopOf="@+id/button27"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="200sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView29">
+
+        <ImageView
+            android:id="@+id/likeButtonDimitr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/images" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

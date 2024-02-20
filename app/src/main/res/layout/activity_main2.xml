@@ -23,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout4"
         android:layout_width="414dp"
         android:layout_height="59dp"
         android:layout_marginBottom="1dp"
@@ -193,5 +194,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.295" />
+
+    <Button
+        android:id="@+id/buttonFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openLikedDoctors"
+        android:text="Favorites"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/button11"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
