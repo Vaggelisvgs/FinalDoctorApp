@@ -38,6 +38,8 @@ public class EditActivity extends AppCompatActivity {
 
     private List<String> apHistory;
 
+    private List<String> likedDoctors;
+
     private boolean isBackPressed;
 
     private String emailChildString;
@@ -58,6 +60,7 @@ public class EditActivity extends AppCompatActivity {
         mobileNumber = intent.getStringExtra("mobileNumber");
         password = intent.getStringExtra("password");
         apHistory = intent.getStringArrayListExtra("listExtra");
+        likedDoctors = intent.getStringArrayListExtra("likedListExtra");
         isBackPressed = false;
         // Initialize the EditText fields
         editTextFirstName = findViewById(R.id.editTextTextPersonName2);
@@ -124,6 +127,7 @@ public class EditActivity extends AppCompatActivity {
                 profileIntent.putExtra("mobileNumber", updatedMobileNumber);
                 profileIntent.putExtra("password", updatedPassword);
                 profileIntent.putStringArrayListExtra("listExtra", new ArrayList<>(apHistory));
+                profileIntent.putStringArrayListExtra("likedListExtra", new ArrayList<>(likedDoctors));
                 startActivity(profileIntent);
                 finish();
             }
@@ -168,6 +172,8 @@ public class EditActivity extends AppCompatActivity {
         main2Intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         main2Intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        main2Intent.putExtra("likedListExtra",likedArray);
         startActivity(main2Intent);
         finish();
     }

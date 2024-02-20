@@ -95,6 +95,17 @@ public class MainActivity extends AppCompatActivity {
                                 // Convert the List<String> to an array
                                 ArrayList<String> array = new ArrayList<>(list);
                                 mainIntent.putStringArrayListExtra("listExtra",array);
+
+                                DataSnapshot likedsnapshot = dataSnapshot.child(emailChildString).child("likedDoctors");
+                                List<String> likedList = new ArrayList<>();
+                                for (DataSnapshot likedChildSnapshot : likedsnapshot.getChildren()){
+                                    String item = likedChildSnapshot.getValue(String.class);
+                                    likedList.add(item);
+                                }
+
+                                ArrayList<String> likedArray = new ArrayList<>(likedList);
+                                mainIntent.putStringArrayListExtra("likedListExtra",likedArray);
+
                                 startActivity(mainIntent);
                                 finish();
                             } else {

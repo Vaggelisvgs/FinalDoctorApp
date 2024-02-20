@@ -13,13 +13,14 @@ public class User {
     private String mobileNumber;
     private String password;
     private List<String> appointmentHistory;
+    private List<String> likedDoctors;
 
     public User() {
         // Default constructor required for Firebase
     }
 
     //Constructor with user details
-    public User(String firstName, String lastName, String amka, String mobileNumber, String email, String passowrd, List<String> appointmentHistory) {
+    public User(String firstName, String lastName, String amka, String mobileNumber, String email, String passowrd, List<String> appointmentHistory, List<String> likedDoctors) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.amka = amka;
@@ -27,6 +28,7 @@ public class User {
         this.email = email;
         this.password = passowrd;
         this.appointmentHistory = appointmentHistory;
+        this.likedDoctors = likedDoctors;
     }
 
     //getter and setters for user's details.
@@ -76,5 +78,11 @@ public class User {
 
     public void setAppointmentHistory(List<String> appointmentHistory) {
         this.appointmentHistory = appointmentHistory;
+    }
+    public List<String> getLikedDoctors() {
+        return likedDoctors;
+    }
+    public void setLikedDoctors(List<String> likedDoctors) {
+        this.likedDoctors = likedDoctors;
     }
 }

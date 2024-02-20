@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,12 @@ public class DimitrellosActivity extends AppCompatActivity {
 
     private List<String> apHistory;
 
+    private List<String> likedDoctors;
+
+    private ImageView likebutton;
+
+    private Boolean likedDoctorBool;
+
     private List<String> closeDates;
 
     private final String classID="ΔΗΜΗΤΡΕΛΛΟΣ ΠΑΝΑΓΙΩΤΗΣ";
@@ -58,7 +65,9 @@ public class DimitrellosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rigakis_gactivity);
+        setContentView(R.layout.activity_dimitrellos);
+
+        likebutton = findViewById(R.id.likeButtonDimitr);
 
         Intent intent = getIntent();
         emailChildString = intent.getStringExtra("userID");
@@ -69,10 +78,111 @@ public class DimitrellosActivity extends AppCompatActivity {
         mobileNumber = intent.getStringExtra("mobileNumber");
         password = intent.getStringExtra("password");
         apHistory = intent.getStringArrayListExtra("listExtra");
+        likedDoctors = intent.getStringArrayListExtra("likedListExtra");
         isBackPressed = false;
-
+        checkIfDoctorInLiked();
+        initLikeButtonUI();
         initCalendarUI();
         getClosedDates();
+    }
+
+
+
+
+    private void checkIfDoctorInLiked() {
+        if(likedDoctors.contains(classID+", "+doctorCategory)){
+            likebutton.setImageResource(R.drawable.images_red);
+            likedDoctorBool=true;
+        }else{
+            likebutton.setImageResource(R.drawable.images);
+            likedDoctorBool=false;
+        }
+
+    }
+
+    private void initLikeButtonUI() {
+        likebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
+                String userKey = emailChildString;
+
+                if(!likedDoctorBool) {
+                    usersRef.child(userKey).child("likedDoctors").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists() && dataSnapshot.hasChildren()) {
+                                GenericTypeIndicator<List<String>> listType = new GenericTypeIndicator<List<String>>() {
+                                };
+                                List<String> likedDoctor = dataSnapshot.getValue(listType);
+
+                                if (likedDoctor == null) {
+                                    likedDoctor = new ArrayList<>();
+                                }
+
+                                likedDoctor.add(classID + ", " + doctorCategory);
+                                likedDoctors = likedDoctor;
+
+                                usersRef.child(userKey).child("likedDoctors").setValue(likedDoctor)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    likebutton.setImageResource(R.drawable.images_red);
+                                                    likedDoctorBool=true;
+                                                    Toast.makeText(DimitrellosActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Toast.makeText(DimitrellosActivity.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else{
+                    usersRef.child(userKey).child("likedDoctors").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists() && dataSnapshot.hasChildren()) {
+                                GenericTypeIndicator<List<String>> listType = new GenericTypeIndicator<List<String>>() {
+                                };
+                                List<String> likedDoctor = dataSnapshot.getValue(listType);
+
+                                if (likedDoctor == null) {
+                                    likedDoctor = new ArrayList<>();
+                                }
+
+                                likedDoctor.remove(classID + ", " + doctorCategory);
+                                likedDoctors = likedDoctor;
+
+                                usersRef.child(userKey).child("likedDoctors").setValue(likedDoctor)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(DimitrellosActivity.this, "Succesfull", Toast.LENGTH_SHORT).show();
+                                                    likebutton.setImageResource(R.drawable.images);
+                                                    likedDoctorBool=false;
+                                                }else {
+                                                    Toast.makeText(DimitrellosActivity.this, "Failed to remove: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Toast.makeText(DimitrellosActivity.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        });
     }
 
     //init the calendar details
@@ -244,6 +354,8 @@ public class DimitrellosActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
@@ -260,6 +372,8 @@ public class DimitrellosActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
@@ -276,6 +390,8 @@ public class DimitrellosActivity extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }

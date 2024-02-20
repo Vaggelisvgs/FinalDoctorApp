@@ -24,7 +24,11 @@ public class HistoryAppointments extends AppCompatActivity {
     //Activity that shows user's history with appoiments
     private boolean isBackPressed;
 
+    private TextView labledTextView;
+
     private String emailChildString;
+
+    private String usage;
 
     private String amka;
     private String email;
@@ -35,12 +39,15 @@ public class HistoryAppointments extends AppCompatActivity {
 
     private List<String> apHistory;
 
+    private List<String> likedDoctors;
+
     //UI init and functionality for history list view
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_appointments);
         Intent intent = getIntent();
+        usage = intent.getStringExtra("usage");
         emailChildString = intent.getStringExtra("userID");
         amka = intent.getStringExtra("amka");
         email = intent.getStringExtra("email");
@@ -49,33 +56,68 @@ public class HistoryAppointments extends AppCompatActivity {
         mobileNumber = intent.getStringExtra("mobileNumber");
         password = intent.getStringExtra("password");
         apHistory = intent.getStringArrayListExtra("listExtra");
+        likedDoctors = intent.getStringArrayListExtra("likedListExtra");
         isBackPressed = false;
+        labledTextView = findViewById(R.id.textView34);
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(emailChildString);
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    DataSnapshot listsnapshot = dataSnapshot.child("appointmentHistory");
-                    List<String> list = new ArrayList<>();
-                    for (DataSnapshot childSnapshot : listsnapshot.getChildren()) {
-                        String item = childSnapshot.getValue(String.class);
-                        list.add(item);
+        if (usage != null) {
+            labledTextView.setText("Favourites doctors");
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(emailChildString);
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.exists()){
+                        DataSnapshot listLikedSnapshot = snapshot.child("likedDoctors");
+
+                        List<String> list = new ArrayList<>();
+                        for (DataSnapshot childSnapshot : listLikedSnapshot.getChildren()) {
+                            String item = childSnapshot.getValue(String.class);
+                            list.add(item);
+                        }
+                        // Convert the List<String> to an array
+                        ArrayList<String> array = new ArrayList<>(list);
+                        likedDoctors = array;
+
+                        // Populate the LinearLayout with TextView elements for each doctor
+                        populateLinearLayout(likedDoctors);
                     }
-                    // Convert the List<String> to an array
-                    ArrayList<String> array = new ArrayList<>(list);
-                    apHistory = array;
-
-                    // Populate the LinearLayout with TextView elements for each appointment
-                    populateLinearLayout(apHistory);
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(HistoryAppointments.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(HistoryAppointments.this, "Database error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            labledTextView.setText("History of Appointments");
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(emailChildString);
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        DataSnapshot listsnapshot = dataSnapshot.child("appointmentHistory");
+                        List<String> list = new ArrayList<>();
+                        for (DataSnapshot childSnapshot : listsnapshot.getChildren()) {
+                            String item = childSnapshot.getValue(String.class);
+                            list.add(item);
+                        }
+                        // Convert the List<String> to an array
+                        ArrayList<String> array = new ArrayList<>(list);
+                        apHistory = array;
+
+                        // Populate the LinearLayout with TextView elements for each appointment
+                        populateLinearLayout(apHistory);
+
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(HistoryAppointments.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     // Method to populate the LinearLayout with TextView elements for each appointment
@@ -126,6 +168,8 @@ public class HistoryAppointments extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
@@ -144,6 +188,8 @@ public class HistoryAppointments extends AppCompatActivity {
         intent.putExtra("password", password);
         ArrayList<String> array = new ArrayList<>(apHistory);
         intent.putExtra("listExtra",array);
+        ArrayList<String> likedArray = new ArrayList<>(likedDoctors);
+        intent.putExtra("likedListExtra",likedArray);
         startActivity(intent);
         finish();
     }
